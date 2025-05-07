@@ -186,7 +186,8 @@ EOF
 #export Ali_Secret="$ALI_SECRET"
 #~/.acme.sh/acme.sh --issue --dns dns_ali -d $DOMAINNAME -w /var/www/acme-challenge
 su -l -s /bin/bash acme << EOF
-~/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+~/.acme.sh/acme.sh --set-default-ca --server zerossl
+~/.acme.sh/acme.sh --register-account -m mokecc@gmail.com --server zerossl
 ~/.acme.sh/acme.sh --issue -d $DOMAINNAME -w /var/www/acme-challenge
 ~/.acme.sh/acme.sh --install-cert -d $DOMAINNAME --key-file /etc/letsencrypt/live/${DOMAINNAME}-private.key --fullchain-file /etc/letsencrypt/live/${DOMAINNAME}-certificate.crt
 ~/.acme.sh/acme.sh --info -d $DOMAINNAME
